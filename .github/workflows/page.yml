@@ -25,10 +25,10 @@ jobs:
           cache: 'npm'
 
       - name: Install Node.js Dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build Astro website
-        run: npm run build
+        run: pnpm run build
 
       # Deploy to VPS over SSH
       - name: Deploy Book to VPS
