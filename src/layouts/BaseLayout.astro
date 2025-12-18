@@ -4,92 +4,87 @@ import Downloads from '../components/Downloads.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 
 interface Props {
-  title: string;
-  description: string;
-  headings: { depth: number; slug: string; text: string; }[];
+    title: string;
+    description: string;
+    headings: { depth: number; slug: string; text: string; }[];
 }
 
 const { title, description, headings } = Astro.props;
 
-// Replicate _config.yml variables
 const site = {
-  title: "Kit Programming Language",
-  logo: "/img/logo.png",
-  description: "A <span class=\"rainbow\">magical</span>, high performance programming language for game development.",
-  github: {
-    repository_url: "https://github.com/kitlang/kit"
-  },
-  twitter: {
-    url: "https://twitter.com/kitlanguage"
-  },
-  discord: {
-    url: "https://discord.gg/3va8Us9"
-  },
-  reddit: {
-    url: "https://reddit.com/r/kitlang"
-  },
-  trello: {
-    url: "https://trello.com/b/Bn9H0fzk/kit"
-  },
-  blog: {
-    url: "https://blog.kitlang.org"
-  },
-  playground: {
-    url: "https://playground-server.kitlang.org/compile"
-  }
+    title: "Kit Programming Language",
+    logo: "/img/logo.png",
+    description: "A <span class=\"rainbow\">magical</span>, high performance programming language for game development.",
+    github: {
+        repository_url: "https://github.com/kitlang/kit"
+    },
+    twitter: {
+        url: "https://twitter.com/kitlanguage"
+    },
+    discord: {
+        url: "https://discord.gg/3va8Us9"
+    },
+    reddit: {
+        url: "https://reddit.com/r/kitlang"
+    },
+    trello: {
+        url: "https://trello.com/b/Bn9H0fzk/kit"
+    },
+    blog: {
+        url: "https://blog.kitlang.org"
+    },
+    playground: {
+        url: "https://playground-server.kitlang.org/compile"
+    }
 };
 ---
 
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="/img/favicon.png">
 
-    <title>{title}</title>
+        <title>{title}</title>
 
-    <link rel="stylesheet" href="/src/styles/jekyll-theme-minimal.scss" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="/src/styles/jekyll-theme-minimal.scss" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    </head>
+    <body>
 
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+        <div class="wrapper">
+            <header>
+                <a href="/">
+                    <img class="logo" src={site.logo} alt="Logo" />
+                </a>
 
-    <div class="wrapper">
-      <header>
-        <a href="/">
-          <img class="logo" src={site.logo} alt="Logo" />
-        </a>
+                <p set:html={site.description}></p>
 
-        <p set:html={site.description}></p>
+                <SocialLinks
+                    githubUrl={site.github.repository_url}
+                    twitterUrl={site.twitter.url}
+                    discordUrl={site.discord.url}
+                    redditUrl={site.reddit.url}
+                    trelloUrl={site.trello.url}
+                    blogUrl={site.blog.url}
+                />
 
-        <SocialLinks
-          githubUrl={site.github.repository_url}
-          twitterUrl={site.twitter.url}
-          discordUrl={site.discord.url}
-          redditUrl={site.reddit.url}
-          trelloUrl={site.trello.url}
-          blogUrl={site.blog.url}
-        />
+                <Downloads githubUrl={site.github.repository_url} />
 
-        <Downloads githubUrl={site.github.repository_url} />
-
-        <p>
-            <hr/>
-            <TableOfContents headings={headings} />
-        </p>
-      </header>
-      <section>
-        <slot />
-      </section>
-      <footer>
-        <p>Kit &mdash; &copy; 2018 <a href="https://github.com/bendmorris">Ben Morris</a> (<a href="https://github.com/kitlang/kit/blob/master/LICENSE.md">license</a>)</p>
-      </footer>
-    </div>
-    <script is:inline src="/js/scale.fix.js"></script>
-  </body>
+                <p>
+                        <hr/>
+                        <TableOfContents headings={headings} />
+                </p>
+            </header>
+            <section>
+                <slot />
+            </section>
+            <footer>
+                <p>Kit &mdash; &copy; 2018 <a href="https://github.com/bendmorris">Ben Morris</a> (<a href="https://github.com/kitlang/kit/blob/master/LICENSE.md">license</a>)</p>
+            </footer>
+        </div>
+        <script is:inline src="/js/scale.fix.js"></script>
+    </body>
 </html>

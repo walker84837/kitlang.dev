@@ -1,18 +1,20 @@
 ---
 interface Props {
-  githubUrl: string;
-  twitterUrl: string;
-  discordUrl: string;
-  redditUrl: string;
-  trelloUrl: string;
-  blogUrl: string;
+    githubUrl: string;
+    twitterUrl: string;
+    discordUrl: string;
+    redditUrl: string;
+    trelloUrl: string;
+    blogUrl: string;
 }
+
+const props: Props = Astro.props;
 ---
 <p class="view">
-  <a href={Astro.props.githubUrl}><i class="fab fa-github fa-3x" title="GitHub"></i></a>
-  <a href={Astro.props.twitterUrl}><i class="fab fa-twitter fa-3x blue" title="Twitter"></i></a>
-  <a href={Astro.props.discordUrl}><i class="fab fa-discord fa-3x" style="color: #738BD8;" title="Discord"></i></a>
-  <a href={Astro.props.redditUrl}><i class="fab fa-reddit fa-3x red" title="Reddit"></i></a>
-  <a href={Astro.props.trelloUrl}><i class="fab fa-trello fa-3x light-blue" title="Trello"></i></a>
-  <a href={Astro.props.blogUrl}><i class="far fa-newspaper fa-3x" title="Blog"></i></a>
+    <a href={props.githubUrl}><i class="fab fa-github fa-3x" title="GitHub"></i></a>
+    <a href={props.twitterUrl}><i class="fab fa-twitter fa-3x blue" title="Twitter"></i></a>
+    <a href={props.discordUrl}><i class="fab fa-discord fa-3x" style="color: #738BD8;" title="Discord"></i></a>
+    <a href={props.redditUrl}><i class="fab fa-reddit fa-3x red" title="Reddit"></i></a>
+    <a href={props.trelloUrl}><i class="fab fa-trello fa-3x light-blue" title="Trello"></i></a>
+    <a href={props.blogUrl}><i class="far fa-newspaper fa-3x" title="Blog"></i></a>
 </p>

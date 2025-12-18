@@ -27,7 +27,6 @@ Kit aims to provide a superset of the capabilities of C. With that said, there a
 
 C's type system is weaker than Kit's; this means that some things that would be valid from C will throw compile-time errors in Kit. As an example, Kit features a true `Bool` type, and other types cannot be implicitly cast to bools, so `if 1 {}` will not compile in Kit. Kit's stance is that generally these usage patterns are more likely to be mistakes, so forbidding them reduces bugs.
 
-
 ## C++
 
 C++ is an early example of a "better C" and is widely used in game development. Some comparisons:
@@ -35,7 +34,6 @@ C++ is an early example of a "better C" and is widely used in game development. 
 * C++ features [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization); Kit does not.
 * C++ provides object-oriented programming features, including classes; Kit provides traits and boxes (fat pointers.) A trait in Kit is similar to an interface, but can be implemented externally to type definitions, and can be implemented by even basic types (e.g. numeric types or tuples.) A box pointer must be explicitly created, so the overhead that boxes/objects add is entirely opt-in.
 * C++ leverages much of the same build infrastructure as C. Kit provides its own compiler and build tool to make the build process simpler.
-
 
 ## Rust
 
@@ -45,7 +43,6 @@ C++ is an early example of a "better C" and is widely used in game development. 
 * One of Rust's key innovations is a borrow checker, which prevents certain kinds of simultaneous aliasing of values. This can greatly improve memory safety and prevent common bugs, but comes with a cost to ergonomics and makes some seemingly straightforward things (e.g. "doubly linked list") painful (but raw pointers can often be used as an escape hatch.) Kit doesn't provide this level of enforced safety.
 * Rust disallows implementing external traits for external types, which closes off a big advantage of a trait system. For example, it's impossible to implement `Show` for `Path`, because the creators of `Path` decided they don't want you to treat it as a string. There is a valid argument against this, but in Kit the developer has the final say. As long as implementations are unambiguous, in Kit traits can be implemented for types arbitrarily.
 * Rust uses a global allocator by default. Kit is designed to allow easy use of multiple custom allocators within the same codebase.
-
 
 ## Zig
 
@@ -63,7 +60,6 @@ A couple key differences:
 
 * Zig is mature; Kit is pre-alpha.
 
-
 ## Haxe
 
 [Haxe](https://www.haxe.org) is a high-level language that compiles (or "transpiles") to 10+ other language targets, including C++, JavaScript and bytecode for various VMs. Haxe has been used for numerous successful games, and its use cases also include settop boxes, websites, and more.
@@ -76,16 +72,13 @@ A couple key differences:
 
 * Haxe is an object-oriented language. Kit's type system uses traits, and has no objects; [boxes](/examples#boxes) must be created explicitly.
 
-
 ## Swift
 
 TODO
 
-
 ## Nim
 
 TODO
-
 
 ## Jai
 

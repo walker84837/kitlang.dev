@@ -1,27 +1,27 @@
 ---
 interface Props {
-  githubUrl: string;
+    githubUrl: string;
 }
 
 const { githubUrl } = Astro.props;
 ---
 <ul class="downloads">
-  <li>
-    <a href={githubUrl}>
-      Get it on
-      <strong><i class="fab fa-github"></i> Github</strong>
-    </a>
-  </li>
-  <li>
-    <a href="/examples">
-      View
-      <strong>Examples</strong>
-    </a>
-  </li>
-  <li>
-    <a href="/playground">
-      Try the
-      <strong>Playground</strong>
-    </a>
-  </li>
+    <li>
+        <a href={githubUrl}>
+            Get it on
+            <strong><i class="fab fa-github"></i> Github</strong>
+        </a>
+    </li>
+    <li>
+        <a href="/examples">
+            View
+            <strong>Examples</strong>
+        </a>
+    </li>
+    <li>
+        <a href="/playground">
+            Try the
+            <strong>Playground</strong>
+        </a>
+    </li>
 </ul>

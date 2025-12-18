@@ -32,7 +32,7 @@ jobs:
 
       # Deploy to VPS over SSH
       - name: Deploy Book to VPS
-        uses: https://github.com/appleboy/scp-action@v1
+        uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.VPS_IP }}
           username: actions
