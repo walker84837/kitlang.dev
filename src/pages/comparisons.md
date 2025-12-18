@@ -1,6 +1,7 @@
 ---
-title: Comparisons between Kit and other languages
-layout: default
+layout: '../layouts/BaseLayout.astro'
+title: 'Comparisons between Kit and other languages'
+description: 'A comparison of Kit with other programming languages like C, C++, Rust, Zig, Haxe, Swift, Nim, and Jai.'
 ---
 
 ## C
@@ -54,11 +55,11 @@ A couple key differences:
 
 * *"Zig competes with C instead of depending on it."* Kit leverages C as a compile target and depends on parts of the C standard library; Kit intends to be C-compiler-independent, and offload portability concerns to the C compiler. Zig compiles to C ABI-compatible binaries, and can be built without any dependency on libc.
 
-* *"[If Zig code doesn't look like it's jumping away to call a function, then it isn't.](https://github.com/ziglang/zig/wiki/Why-Zig-When-There-is-Already-CPP,-D,-and-Rust%3F#no-hidden-control-flow)"* Zig prioritizes readability (if we define readability here as "being able to read code and know what it will do at runtime.") Kit prefers to be concise and separate intent from mechanics; it provides metaprogramming that violate this definition of readability. Examples include [term rewriting](examples.html#term-rewriting) and [implicits](examples.html#implicits).
+* *"[If Zig code doesn't look like it's jumping away to call a function, then it isn't.](https://github.com/ziglang/zig/wiki/Why-Zig-When-There-is-Already-CPP,-D,-and-Rust%3F#no-hidden-control-flow)"* Zig prioritizes readability (if we define readability here as "being able to read code and know what it will do at runtime.") Kit prefers to be concise and separate intent from mechanics; it provides metaprogramming that violate this definition of readability. Examples include [term rewriting](/examples#term-rewriting) and [implicits](/examples#implicits).
 
 * Kit includes additional features inspired by functional languages, including traits, implicits, algebraic data types and pattern matching.
 
-* Kit uses [traits](examples.html#traits) as a mechanism for runtime polymorphism. Zig has no builtin mechanism for runtime polymorphism.
+* Kit uses [traits](/examples#traits) as a mechanism for runtime polymorphism. Zig has no builtin mechanism for runtime polymorphism.
 
 * Zig is mature; Kit is pre-alpha.
 
@@ -73,7 +74,7 @@ A couple key differences:
 
 * Interop between Haxe and its targets requires bindings. Kit requires no bindings to leverage existing C libraries.
 
-* Haxe is an object-oriented language. Kit's type system uses traits, and has no objects; [boxes](examples.html#boxes) must be created explicitly.
+* Haxe is an object-oriented language. Kit's type system uses traits, and has no objects; [boxes](/examples#boxes) must be created explicitly.
 
 
 ## Swift

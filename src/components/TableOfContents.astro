@@ -1,0 +1,31 @@
+---
+interface Props {
+  headings: {
+    depth: number;
+    slug: string;
+    text: string;
+  }[];
+}
+
+const { headings } = Astro.props;
+
+const minDepth = headings.length > 0 ? Math.min(...headings.map(h => h.depth)) : 0;
+---
+<ul class="toc">
+  {headings.map((heading) => (
+    <li style={{ marginLeft: `${(heading.depth - minDepth) * 1.5}rem` }}>
+      <a href={`#${heading.slug}`}>{heading.text}</a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .toc {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc li {
+    margin: 0.5rem 0;
+  }
+</style>
