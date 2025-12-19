@@ -16,25 +16,16 @@ const site = {
     logo: "/img/logo.png",
     description: "A <span class=\"rainbow\">magical</span>, high performance programming language for game development.",
     github: {
-        repository_url: "https://github.com/kitlang/kit"
-    },
-    twitter: {
-        url: "https://twitter.com/kitlanguage"
+        repository_url: "https://github.com/walker84837/kitlang-rs"
     },
     discord: {
         url: "https://discord.gg/3va8Us9"
     },
-    reddit: {
-        url: "https://reddit.com/r/kitlang"
-    },
-    trello: {
-        url: "https://trello.com/b/Bn9H0fzk/kit"
-    },
     blog: {
-        url: "https://blog.kitlang.org"
+        url: "https://blog.kitlang.dev"
     },
     playground: {
-        url: "https://playground-server.kitlang.org/compile"
+        url: "https://playground-server.kitlang.dev/compile"
     }
 };
 ---
@@ -62,12 +53,21 @@ const site = {
 
                 <p set:html={site.description}></p>
 
+                <!--
+                TODO: restore Reddit link when appropriate
                 <SocialLinks
                     githubUrl={site.github.repository_url}
                     twitterUrl={site.twitter.url}
                     discordUrl={site.discord.url}
                     redditUrl={site.reddit.url}
                     trelloUrl={site.trello.url}
+                    blogUrl={site.blog.url}
+                />
+                -->
+
+                <SocialLinks
+                    githubUrl={site.github.repository_url}
+                    discordUrl={site.discord.url}
                     blogUrl={site.blog.url}
                 />
 
@@ -82,7 +82,8 @@ const site = {
                 <slot />
             </section>
             <footer>
-                <p>Kit &mdash; &copy; 2018 <a href="https://github.com/bendmorris">Ben Morris</a> (<a href="https://github.com/kitlang/kit/blob/master/LICENSE.md">license</a>)</p>
+                <p>Kit &mdash; &copy; 2025 <a href="https://github.com/walker84837">walker84837</a>.</p>
+                <p>Some text and content adapted from <a href="https://github.com/bendmorris">Ben Morris</a>, original Kit project (<a href="https://github.com/kitlang/kit/blob/master/LICENSE.md">LGPL</a>).</p>
             </footer>
         </div>
         <script is:inline src="/js/scale.fix.js"></script>
